@@ -1,14 +1,110 @@
 // Soldier
-class Soldier {}
+class Soldier {
+  constructor (health, strength) {
+    this.health = health;
+    this.strength = strength;
+  }
+    attack () {
+      return this.strength;
+    }
+    receiveDamage(damage) {
+      this.health -= damage;
+    }
+}
 
 // Viking
-class Viking {}
+class Viking extends Soldier {
+  constructor (name, health, strength) {
+   super () 
+   this.name = name;
+   this.health = health;
+   this.strength = strength;
+  }
+   
+
+   receiveDamage(damage) {
+    this.health -= damage;
+    if (this.health > 0) {
+      return `${this.name} has received ${damage} points of damage`
+    } else if (this.health === 0) {
+      return `${this.name} has died in act of combat`
+    }
+  }
+  
+     battleCry() {
+      return "Odin Owns You All!";
+     }
+  
+}
 
 // Saxon
-class Saxon {}
+
+class Saxon extends Soldier {
+
+
+receiveDamage(damage) {
+this.health -= damage;
+if (this.health > 0) {
+  return `A Saxon has received ${damage} points of damage`
+} else if (this.health === 0) {
+  return `A Saxon has died in combat`;
+}
+}
+}
 
 // War
-class War {}
+class War {
+  constructor () {
+  this.vikingArmy = [];
+  this.saxonArmy = [];
+  }
+
+addViking (Viking) {
+  this.vikingArmy.push(Viking)
+}
+
+addSaxon(Saxon) {
+  this.saxonArmy.push(Saxon)
+}
+
+
+vikingAttack() {
+
+}
+
+
+
+/*
+CHECK should be a function        
+CHECK should receive 0 arguments check
+should make a Saxon receiveDamage() equal to the strength of a Viking 
+should remove dead saxons from the army
+should return result of calling receiveDamage() of a Saxon with the strength of a Viking
+*/
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+saxonAttack() {}
+
+showStatus() {}
+  
+}
 
 
 
